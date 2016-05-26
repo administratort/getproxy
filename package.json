@@ -1,0 +1,29 @@
+{
+  "name": "getproxy",
+  "version": "1.0.0",
+  "description": "Get proxies",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syaning/getproxy.git"
+  },
+  "keywords": [
+    "getproxy",
+    "proxy",
+    "proxies",
+    "http-proxy",
+    "https-proxy"
+  ],
+  "author": "Alex Sun <syaningv@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syaning/getproxy/issues"
+  },
+  "homepage": "https://github.com/syaning/getproxy#readme",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  }
+}
