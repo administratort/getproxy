@@ -13,6 +13,10 @@ function proxy() {
 }
 
 proxy.for = function(uri) {
+  if (!uri) {
+    return null
+  }
+
   if (typeof uri === 'string') {
     uri = url.parse(uri)
   }
