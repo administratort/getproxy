@@ -23,6 +23,9 @@ proxy.for('https://example.com')
 // 'proxy.test.com:8080'
 
 proxy.for('example.com')
+// 'proxy.example.com:8080'
+
+proxy.for('ftp://example.com')
 // null
 ```
 

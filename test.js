@@ -16,10 +16,11 @@ describe('getproxy', function() {
     })
   })
 
-  it('proxy.for(uri)', function() {
+  it('proxy.for(url)', function() {
     assert.equal(proxy.for('http://example.com'), httpProxy)
     assert.equal(proxy.for('https://example.com'), httpsProxy)
-    assert.ok(proxy.for('example.com') === null)
+    assert.equal(proxy.for('example.com'), httpProxy)
+    assert.ok(proxy.for('ftp://example.com') === null)
     assert.ok(proxy.for(null) === null)
   })
 })

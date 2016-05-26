@@ -1,4 +1,4 @@
-const url = require('url')
+const parseUrl = require('url').parse
 
 module.exports = proxy
 
@@ -12,22 +12,23 @@ function proxy() {
   }
 }
 
-proxy.for = function(uri) {
-  if (!uri) {
+proxy.for = function(url) {
+  if (!url) {
     return null
   }
 
-  if (typeof uri === 'string') {
-    uri = url.parse(uri)
+  if (typeof url === 'string') {
+    url = parseUrl(url)
   }
 
   var proxies = proxy()
+  var protocol = url.protocol || 'http:'
 
-  if (uri.protocol === 'http:') {
+  if (protocol === 'http:') {
     return proxies.http
   }
 
-  if (uri.protocol === 'https:') {
+  if (protocol === 'https:') {
     return proxies.https || proxies.http
   }
 
