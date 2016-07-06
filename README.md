@@ -4,8 +4,8 @@ Get proxies.
 
 ### Install
 
-```
-npm install getproxy
+```sh
+$ npm install getproxy
 ```
 
 ### Usage
@@ -31,4 +31,4 @@ proxy.for('ftp://example.com')
 
 ### License
 
-MIT
+[MIT](./LICENSE)
