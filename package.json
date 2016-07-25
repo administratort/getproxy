@@ -1,6 +1,6 @@
 {
   "name": "getproxy",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Get proxies",
   "main": "index.js",
   "scripts": {
@@ -29,5 +29,8 @@
   "homepage": "https://github.com/syaning/getproxy#readme",
   "devDependencies": {
     "mocha": "^2.5.3"
+  },
+  "files": {
+    "index.js"
   }
 }
