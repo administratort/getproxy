@@ -3,14 +3,23 @@ const parseUrl = require('url').parse
 module.exports = proxy
 
 function proxy() {
-  var http = process.env.HTTP_PROXY || process.env.http_proxy || null
-  var https = process.env.HTTPS_PROXY || process.env.https_proxy || null
-
   return {
-    http,
-    https
+    http: proxy.http,
+    https: proxy.https
   }
 }
+
+Object.defineProperty(proxy, 'http', {
+  get: function() {
+    return process.env.HTTP_PROXY || process.env.http_proxy || null
+  }
+})
+
+Object.defineProperty(proxy, 'https', {
+  get: function() {
+    return process.env.HTTPS_PROXY || process.env.https_proxy || null
+  }
+})
 
 proxy.for = function(url) {
   if (!url) {
@@ -21,15 +30,14 @@ proxy.for = function(url) {
     url = parseUrl(url)
   }
 
-  var proxies = proxy()
   var protocol = url.protocol || 'http:'
 
   if (protocol === 'http:') {
-    return proxies.http
+    return proxy.http
   }
 
   if (protocol === 'https:') {
-    return proxies.https || proxies.http
+    return proxy.https || proxy.http
   }
 
   return null

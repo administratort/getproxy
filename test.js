@@ -16,6 +16,14 @@ describe('getproxy', function() {
     })
   })
 
+  it('proxy.http', function() {
+    assert.equal(proxy.http, httpProxy)
+  })
+
+  it('proxy.https', function() {
+    assert.equal(proxy.https, httpsProxy)
+  })
+
   it('proxy.for(url)', function() {
     assert.equal(proxy.for('http://example.com'), httpProxy)
     assert.equal(proxy.for('https://example.com'), httpsProxy)
